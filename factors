@@ -1,0 +1,20 @@
+import sys
+import math
+
+# Open the file passed as a command line argument
+file = open(sys.argv[1], "r")
+
+# Iterate through each line in the file
+for num in file:
+    num = int(num)
+    for i in range(2, int(math.sqrt(num))+1):
+        if num % i == 0:
+            p = i
+            q = num // i
+            print(f"{num} = {p} * {q}")
+            break
+    else:
+        print(f"{num} = {num} * 1")
+
+# Close the file
+file.close()
